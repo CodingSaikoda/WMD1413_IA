@@ -1,0 +1,150 @@
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at center, #ff7a18 0%, transparent 35%),
+        linear-gradient(to top, #1b0033 0%, #3a0066 40%, #6a0572 70%, #a4133c 100%);
+
+    background-image: url("Student Club Management System.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== MAIN CONTAINER (Register & Login) ===== */
+.container {
+    width: 90%;
+    max-width: 480px;
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 2px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35),
+        0 0 40px rgba(255, 122, 24, 0.25);
+}
+
+
+/* ===== HEADINGS ===== */
+h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.5px;
+}
+
+/* ===== PARAGRAPH / LINKS ===== */
+p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+p a {
+    color: #4338ca;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* ===== LABELS ===== */
+label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* ===== INPUT FIELDS ===== */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* ===== INPUT FOCUS ===== */
+input:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.6);
+}
+
+/* ===== ERROR MESSAGES ===== */
+.error-msg {
+    font-size: 13px;
+    margin-top: px;
+    min-height: 16px;
+}
+
+/* ===== BUTTON GROUP ===== */
+.button-group {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* ===== BUTTONS ===== */
+button {
+    flex: 1;
+    padding: 12px;
+
+    border: none;
+    border-radius: 25px;
+
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+    color: white;
+    background: linear-gradient(to right, #6c63ff, #5a54e8);
+
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #5a54e8, #4338ca);
+    transform: scale(1.05);
+}
+
+/* ===== SECONDARY BUTTON ===== */
+button.secondary {
+    background: linear-gradient(to right, #ff7675, #e17055);
+}
+
+button.secondary:hover {
+    background: linear-gradient(to right, #e17055, #d63031);
+}
+
+/* ===== RESPONSE MESSAGE ===== */
+#responseMsg {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+}

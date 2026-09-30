@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tommy Liu|Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+
+
+    <body>
+        <nav>
+            <ul>
+                <img src="logo.png" class="logo" alt="Logo">                
+                <a href="home.html">Home</a> 
+                <a href= "aboutme.html" > About Me </a>
+                <a href= "myproject.html" class="active"> My Project </a>
+                <a href= "contactme.html"> Contact Me </a>
+            </ul>
+        </nav>
+
+        <main>
+
+            <section id="MyProject">
+
+                <div class="projectContainer">
+
+                    <div class="projectCard">
+                        <img src="thumbnail1.png" alt="Project 1" class="thumbnail"> 
+                        <h2>Portfolio Website</h2> 
+
+                            <div class="projectTags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+
+                        <p>A personal portfolio website showcasing my skills, education, and projects.</p> 
+                        <a href="MyProject/SFD2413_IndividualAssignment_Tommy_EW5758/home1.html" target="_blank" >View Project →</a> 
+                    </div>
+
+                    <div class="projectCard">
+                        <img src="thumbnail2.png" alt="Project 2" class="thumbnail">
+                        <h2>Student Management System </h2>
+
+                            <div class="projectTags">
+
+                                <span>HTML</span>
+                                <span>CSS Code</span>
+                                <span>JavaScript</span>
+
+                            </div>
+
+                        <p>A simple login and registration system for user account management..</p>
+                        <a href="MyProject/SFD2413_GroupAssignment _Group1/login.html" target="_blank" >View Project →</a>
+                    </div>
+
+                    <div class="projectCard">
+                        <img src="thumbnail3.png" alt="Project 3" class="thumbnail"> 
+                        <h2>Task Tracking</h2> 
+
+                            <div class="projectTags">
+
+                                <span>JavaScript</span>
+                                <span>HTML</span>
+                                <span>CSS</span>
+
+                            </div>     
+
+                        <p>A simple task tracking system for managing and monitoring tasks.</p> 
+                        <a href="MyProject/simple-app/simple-app/index.html" target="_blank">View Project →</a> 
+                    </div>        
+ 
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <footer>
+            <p>&copy; 2024 Tommy Liu. All rights reserved.</p>
+
+        </footer>
+
+
+
+        <script>
+        window.addEventListener("scroll", () => {
+            const container = document.querySelector(".projectContainer"); 
+            const position = container.getBoundingClientRect().top; 
+
+            if (position < window.innerHeight * 0.8) {
+                container.classList.add("show"); 
+            }
+        });
+        </script>
+
+
+
+    </body>
+
+
+</html>

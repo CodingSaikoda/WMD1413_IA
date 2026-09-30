@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fame Club</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>User Login</h1>
+
+        <form id="logInform">
+
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="Enter your email address" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+
+            <div class="button-group">
+                <button type="submit">Login</button>
+            </div>
+
+            <p>Don't have an account? <a href="register.html">Register</a></p>
+
+            <div id="responseMsg" style="margin-top:10px; color: green;"></div>
+
+        </form>
+    </div>
+
+    
+<script>
+    const form = document.getElementById("logInform");
+    const responseMsg = document.getElementById("responseMsg");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        const data = { email, password };
+
+        fetch("http://localhost:3000/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                responseMsg.style.color = "green";
+                responseMsg.innerText = "Login successful!";
+                localStorage.setItem("userEmail", email);
+                window.location.href = "dashboard.html";
+            } else {
+                responseMsg.style.color = "red";
+                responseMsg.innerText = data.message || "Invalid email or password.";
+            }
+        })
+        .catch(err => {
+            responseMsg.style.color = "red";
+            responseMsg.innerText = "Server error.";
+            console.error(err); 
+        });
+    });
+
+</script>
+
+</body>
+
+</html>

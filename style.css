@@ -1,0 +1,443 @@
+body {
+    background-color: #222222;
+    color:aliceblue;
+    font-family: 'Quicksand', sans-serif;
+    font-weight:700;
+    display:flex;
+    flex-direction:column;
+    min-height: 100vh;
+    margin: 0;
+    
+}
+
+
+/*region navigation bar*/
+
+nav {
+    position: relative;
+
+}
+
+nav ul{
+    font-family: 'Montserrat',sans-serif;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    font-size: 25px;
+    font-weight: 700;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    position: relative;
+    padding: 20px 80px;
+    text-decoration: none;
+    z-index: 2;
+}
+
+
+nav a:hover{
+    background-color: #494343;
+    padding: 20px 120px;
+    transition: 0.4s;
+}
+
+nav a.active{
+    color :#494343;
+    font-size: 30px;
+}
+
+.logo {
+    width: 90px;
+}
+
+/*endregion^^ navigation bar ^^*/
+
+/*region Home Page*/
+
+#Home {
+    position: relative;
+    height: 800px;
+
+
+}
+
+#Home h1{
+    position:relative;
+    text-align: center;
+    font-size: 100px;
+    z-index:1;
+    
+}
+
+
+#whiteName{
+    color: white;
+}
+
+#yellowName{
+    color:rgb(230, 174, 35);
+
+}
+
+#Home img{
+    position: absolute;
+    left :50%;
+    top:120px;
+    transform: translateX(-50%);
+    height: 700px;
+    z-index: 2;  
+
+}
+
+
+.leftText1,
+.leftText2,
+.rightText1,
+.rightText2 {
+    font-family: 'Pacifico', cursive;
+    position: absolute; 
+    opacity: 0;         
+    transition: 0.8s;    
+    font-size: 20px;
+}
+
+.leftText1.show,
+.leftText2.show,
+.rightText1.show,
+.rightText2.show {
+    opacity: 1;         
+}
+
+.leftText1 {
+    left: 10%;
+    top: 300px;
+}
+
+.leftText2 {
+    color:rgb(230, 174, 35);
+    left: 5%;
+    top: 500px;
+}
+
+.rightText1 {
+    right: 7%;
+    top: 300px;
+}
+
+.rightText2 {
+    color:rgb(230, 174, 35);
+    right: 5%;
+    top: 525px;
+}
+
+/*endregion^^ Home Page ^^*/
+
+/*region About Me*/
+
+#AboutMe{
+    display: flex;
+    justify-content: center;
+    padding: 70px;    
+}
+
+.aboutMeContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.5s;
+    gap: 30px;
+    
+}
+
+.aboutMeCard1,
+.aboutMeCard2,
+.aboutMeCard3,
+.aboutMeCard4 {
+    width: 500px;
+    padding: 40px;
+    box-sizing: border-box; 
+}
+
+
+
+.aboutMeCardFront1{
+    text-align: center;
+}
+.aboutMeCardFront2{
+    text-align: center;
+}
+.aboutMeCardFront3{
+    text-align: center;
+}
+.aboutMeCardFront4{
+    text-align: center;
+}
+
+
+.aboutMeCardBack1{
+    display: none;
+}
+.aboutMeCardBack2{
+    display: none;
+}
+.aboutMeCardBack3{
+    display: none;
+}
+.aboutMeCardBack4{
+    display: none;
+}
+
+.aboutMeCard1 h2,
+.aboutMeCard2 h2,
+.aboutMeCard3 h2,
+.aboutMeCard4 h2{
+    font-size: 40px;
+}
+.aboutMeCard1 p{
+    font-weight: 300px;
+    text-align: justify;
+}
+
+.aboutMeCardBack2 h2,
+.aboutMeCardBack3 h2,
+.aboutMeCardBack4 h2{
+    font-size: 30px;
+}
+
+
+
+.aboutMeCard1:hover {
+    background-color: #494343;
+    transition: 1s;
+    transform: scale(1.2); 
+}
+
+.aboutMeCard2:hover {
+    background-color: #494343;    
+    transition: 1s;    
+    transform: scale(1.2); 
+}
+
+.aboutMeCard3:hover {
+    background-color: #494343;    
+    transition: 1s;    
+    transform: scale(1.2); 
+}
+
+.aboutMeCard4:hover {
+    background-color: #494343;    
+    transition: 1s;    
+    transform: scale(1.2); 
+}
+
+
+.aboutMeCard1:hover .aboutMeCardFront1{
+    display: none;
+}
+.aboutMeCard2:hover .aboutMeCardFront2{
+    display: none;
+}
+.aboutMeCard3:hover .aboutMeCardFront3{
+    display: none;
+}
+.aboutMeCard4:hover .aboutMeCardFront4{
+    display: none;
+}
+
+
+.aboutMeCard1:hover .aboutMeCardBack1{
+    display: block;
+}
+.aboutMeCard2:hover .aboutMeCardBack2{
+    display: block;
+}
+.aboutMeCard3:hover .aboutMeCardBack3{
+    display: block;
+}
+.aboutMeCard4:hover .aboutMeCardBack4{
+    display: block;
+}
+
+/*endregion^^ About Me ^^*/
+
+
+/* region MyProject */
+
+#MyProject{
+    display: flex;
+    justify-content: center;
+    padding: 70px;
+}
+
+.projectContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    transition: transform 0.5s;
+    margin-top: 50px;
+    
+}
+
+.projectCard{
+    background-color: rgb(40, 40, 49);
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    height:auto;
+    width: 250px;
+
+}
+.projectCard p {
+    text-align: justify; 
+}
+
+.projectCard a{
+     margin-top: auto;
+     color:rgb(230, 174, 35);
+     
+}
+
+.projectTags{
+    display: flex;
+    flex-direction: row;
+}
+
+.thumbnail{
+    width: 250px;        
+    height: 150px;     
+    object-fit: cover; 
+}
+
+.projectTags span{
+
+    background-color: #494343;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 10px;
+    margin-right: 5px;
+    width: auto;
+
+}
+
+.projectCard:hover{
+    background-color: #494343;
+    transition: 1s;
+}
+
+.projectContainer.show {
+    transform: scale(1.2);
+    gap: 10px;
+}
+
+/*endregion^^ MyProject ^^*/
+
+/*region Contact Me*/
+
+#ContactMe {
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+    min-height: 100vh;
+    gap: 50px;
+}
+
+.contactContent{
+    background-color: #494343;
+    width: 500px;
+    height: auto;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.contactContent p{
+    margin-bottom: 50px;
+}
+
+.fa-facebook{
+    font-size: 50px;
+    width: 60px;
+}
+
+.fa-instagram{
+    font-size: 50px;
+    width: 60px;
+}
+
+
+.contactFormArea label,
+.contactFormArea input,
+.contactFormArea textarea {
+    display: block; 
+    padding: 10px;
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+
+.contactFormArea{
+    background-color: #494343;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 500px;
+    padding: 50px;
+        border-radius: 20px;
+}
+
+.contactFormArea h2{
+    margin-bottom: 50px;
+}
+
+
+#nameError,
+#emailError,
+#subjectError,
+#messageError {
+    color: red; 
+    margin-bottom: 10px;
+}
+#alertMessage{
+    text-align: center;
+    color: green;
+}
+
+.contactFormArea input[type="file"] {
+    height: 70px;
+    width: 400px;
+    border: 2px dashed white;
+}
+
+.contactFormArea button{
+    display: block;
+    margin: 0 auto;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+
+/*endregion^^ Contact Me ^^*/
+
+footer {
+    background-color: rgb(24, 24, 24);
+    color: white;
+    padding: 40px;
+    margin-top: auto;  
+    position:relative;
+    z-index: 3;
+
+}
+
+footer p{
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    margin: 5px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tommy Liu|Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+
+
+    <body>
+
+
+        <nav>
+            <ul>
+                <img src="logo.png" class="logo" alt="Logo">
+                <a href="home.html" class="active">Home</a> 
+                <a href= "aboutme.html"> About Me </a>
+                <a href= "myproject.html"> My Project </a>
+                <a href= "contactme.html"> Contact Me </a>
+            </ul>
+        </nav>
+
+        <main>
+ 
+            <section id="Home">
+                <h1>
+                    <span id="whiteName"> Tommy </span>
+                    <span id="yellowName"> Liu</span>
+                </h1>
+
+                <img src="profile.png">
+ 
+                <div class="leftText1">
+                    <h2>I enjoy coding and web design.</h2>
+        
+                </div>
+
+                <div class="leftText2">
+                    <h2>I create user-friendly <br>digital experiences.</h2>
+
+                </div>
+
+                <div class="rightText1">
+                    <h2>Diploma in Information Technology</h2>
+                </div>
+
+                <div class="rightText2">
+                    <h2>Future Software Developer</h2>
+                </div>
+
+            </section>
+
+        </main>    
+
+
+        <footer>
+            <p>&copy; 2024 Tommy Liu. All rights reserved.</p>
+
+        </footer>
+
+
+        <script>
+
+        window.addEventListener("scroll", () => {
+        const left1 = document.querySelector(".leftText1");
+        const left2 = document.querySelector(".leftText2");
+        const right1 = document.querySelector(".rightText1");
+        const right2 = document.querySelector(".rightText2");
+
+            if (window.scrollY > 100) {
+                left1.classList.add("show");
+                right1.classList.add("show");
+            }
+
+            if (window.scrollY > 200) {
+            left2.classList.add("show");
+            right2.classList.add("show");
+            }
+        });
+    
+        </script>
+  
+
+    </body>
+
+</html>

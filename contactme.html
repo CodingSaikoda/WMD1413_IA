@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tommy Liu|Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+
+
+    <body>
+
+        <nav>
+
+            <ul>
+                <img src="logo.png" class="logo" alt="Logo">                
+                <a href="index.html">Home</a> 
+                <a href= "aboutme.html"> About Me </a>
+                <a href= "myproject.html"> My Project </a>
+                <a href= "contactme.html" class="active"> Contact Me </a>
+            </ul>
+
+        </nav>
+
+        <main>
+
+
+            <section id="ContactMe">
+
+                <div class="contactContent">
+
+                    <h2>Email Information</h2>
+
+                    <p>For collaboration or commission requests, please contact me at liujunxue05@gmail.com</p>
+
+                    <h2>Contact Number</h2>
+
+                    <p> <i class="fa-solid fa-phone"></i> +018 984 6884</p>
+
+                    <h2>Social Media</h2>
+
+                    <a href="https://www.facebook.com/profile.php?id=100014732525949" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+
+                    </a>
+
+                    <a href="https://www.instagram.com/liujunxue10.25/">
+                        <i class="fa-brands fa-instagram"></i>
+                    
+                    </a>
+
+                </div> 
+                         
+                
+                <div class="contactFormArea">
+
+                    <h2>Have a question?  Send me a message. </h2>
+                    <form id="contactForm">
+                        <label >Name</label>
+                        <div id="nameError"></div>
+                        <input type="text" placeholder="Your Name" id="name">
+
+                        <label>Email</label>
+                        <div id="emailError"></div>
+                        <input type="email" placeholder="Your Email" id="email">
+
+                        <label>Subject</label>
+                        <div id="subjectError"></div>
+                        <input type="text" placeholder="Subject" id="subject">
+
+                        <label>Message</label>
+                        <div id="messageError"></div>
+                        <textarea placeholder="Your Message" id="message"></textarea>
+
+                        <label id="attachmentArea">Attachment</label>
+                        <input type="file" id="attachment">
+ 
+                        <button type="submit">Submit</button>
+                        <div id="alertMessage"></div>
+                    </form>   
+                    
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+
+        <footer>
+            <p>&copy; 2024 Tommy Liu. All rights reserved.</p>
+
+        </footer>
+
+        <script>
+            const form = document.getElementById("contactForm"); 
+  
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); 
+
+                const name = document.getElementById("name").value.trim(); 
+                const email = document.getElementById("email").value.trim(); 
+                const subject = document.getElementById("subject").value.trim();
+                const message = document.getElementById("message").value.trim(); 
+
+                document.getElementById("nameError").textContent = "";
+                document.getElementById("emailError").textContent = "";
+                document.getElementById("subjectError").textContent = "";
+                document.getElementById("messageError").textContent = "";                
+
+                if (name === "") {
+                    document.getElementById("nameError").textContent ="Please enter your name."; 
+                }
+
+                if (email === "") {
+                    document.getElementById("emailError").textContent = "Please enter your email."; 
+                }else if (!email.includes("@")) {
+                    document.getElementById("emailError").textContent = "Please enter an correct email."; 
+                    }
+
+                if (subject === "") {
+                    document.getElementById("subjectError").textContent = "Please enter the subject."; 
+                }
+
+                if (message === "") {
+                    document.getElementById("messageError").textContent = "Please enter your message."; 
+                    return;
+                }
+
+                if (name !== "" && email !== "" && email.includes("@") && message !== "") {
+                    alertMessage.textContent = "Message sent successfully!";
+                }
+            });        
+
+        </script>
+
+
+    </body>
+
+</html>

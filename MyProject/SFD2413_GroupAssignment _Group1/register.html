@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<!--root-->
+<html lang="en-US">
+
+<!--meta information-->
+<head>           
+    <!-- title of HTML page-->  
+    <title>     Fame Club    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- container ( visivle content ) -->
+<body>           
+
+<div class="container">
+    <h1>     Member Registration     </h1>
+    <p>    Already have an account?    <a href="login.html">   Log in   </a>  </p>
+
+    <!--Form declaration-->
+    <form id="registrationForm" novalidate>
+        <label for="name">Full Name</label>
+        <div class="error-msg" id="nameError"></div>
+        <input type="text" id="name" placeholder="Enter your full name">
+
+        <label for="email">Email Address</label>
+        <div class="error-msg" id="emailError"></div>
+        <input type="email" id="email" placeholder="Enter your email address" >
+    
+        <label for="phoneNum">Phone Number</label>
+        <div class="error-msg" id="phoneNumError"></div>
+        <input type="tel" id="phoneNum" placeholder="Enter your phone number">
+
+        <label for="password">Password</label>
+        <div class="error-msg" id="passwordError"></div>
+        <input type="password" id="password" placeholder="Enter your password">
+
+        <label for="password2">Confirm Password</label>
+        <div class="error-msg" id="password2Error"></div>
+        <input type="password" id="password2" placeholder="Confirm password">
+
+        <div class="button-group">
+            <button type="submit">Submit</button>
+            <button type="reset" class="secondary">Clear</button>
+        </div>
+    
+        <!--create a green block to display msg-->
+        <div id="responseMsg"  style="margin-top: 10px; color: green;">     </div>
+
+    </form>
+
+</div>   
+
+
+<script>
+    //store them in variables so they can be manipulated later using JavaScript
+    const form = document.getElementById("registrationForm");
+    const responseMsg = document.getElementById("responseMsg");
+
+    // Error message
+    const nameErrorMsg = document.getElementById("nameError");
+    const emailErrorMsg = document.getElementById("emailError");
+    const phoneNumErrorMsg = document.getElementById("phoneNumError");
+    const passwordErrorMsg = document.getElementById("passwordError");
+    const password2ErrorMsg = document.getElementById("password2Error");
+
+    //Run the intruction below after user clicking submit button
+    form.addEventListener("submit",function(e){
+        e.preventDefault();
+
+        // Retrieve and trim user input values
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phoneNum = document.getElementById("phoneNum").value.trim();
+        const password = document.getElementById("password").value.trim();    
+        const password2 = document.getElementById("password2").value.trim();
+
+        // It is a validation flags to check whether the input field is empty
+        let nameError = true;
+        let emailError = true;
+        let phoneNumError = true;
+        let passwordError = true;
+        let password2Error = true;
+
+        // Name validation
+        const nameRegex = /^[A-Za-z ]+$/;
+        if (name === "") {
+            nameErrorMsg.style.color = "red";   //change the inner text color of the HTML element
+            nameErrorMsg.innerHTML = "Full Name cannot be empty";}   //change the inner text of the HTML element
+            
+            else if (!nameRegex.test(name)) {
+            nameErrorMsg.style.color="red";   
+            nameErrorMsg.innerHTML = "Full Name field must contain letters only";}   //change the inner text of the HTML element
+            
+            else {nameErrorMsg.innerHTML = "";  // Error message hidden
+            nameError = false;}
+
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email === "") {
+            emailErrorMsg.style.color = "red";
+            emailErrorMsg.innerHTML = "Email address cannot be empty";}
+            
+            else if (!emailRegex.test(email)) {
+            emailErrorMsg.style.color = "red";
+            emailErrorMsg.innerHTML = "Please enter a valid email address (example@domain.com)";}
+            
+            else {emailErrorMsg.innerHTML = "";  // Error message hidden
+            emailError = false;}
+
+
+        //Phone number validation
+        const phoneRegex = /^[0-9]+$/;
+        if (phoneNum === "") {
+            phoneNumErrorMsg.style.color = "red";
+            phoneNumErrorMsg.innerHTML = "Phone number cannot be empty";}
+               
+            else if (!phoneRegex.test(phoneNum)) {
+            phoneNumErrorMsg.style.color="red";
+            phoneNumErrorMsg.innerHTML = "Phone number must contain numbers only.";}
+            
+            else if (phoneNum.length < 8 || phoneNum.length > 15) {
+            phoneNumErrorMsg.style.color="red";
+            phoneNumErrorMsg.innerHTML = "Phone number length is invalid.";}
+            
+            else {phoneNumErrorMsg.innerHTML = "";  // Error message hidden
+            phoneNumError = false;}
+
+
+        // Password validation
+        const passRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+        if (password === "") {
+            passwordErrorMsg.style.color = "red";
+            passwordErrorMsg.innerHTML = "Password cannot be empty";  }
+
+            else if (!passRegex.test(password)) {
+            passwordErrorMsg.style.color="red"
+            passwordErrorMsg.innerHTML = "Password must be at least 8 characters, include one uppercase letter, one number, and one special character.";}
+
+            else {passwordErrorMsg.innerHTML = "";  // Error message hidden
+            passwordError = false;}
+           
+        // Password2 validation
+        if (password2 !== password) {
+            password2ErrorMsg.style.color = "red";
+            password2ErrorMsg.innerHTML = "Password do not match";}
+
+            else if (password2 == password) {
+            password2ErrorMsg.innerHTML = "";  // Error message hidden
+            password2Error = false;}
+
+        //If validation flags are true, stop executing the remaining code
+        if (nameError || emailError || phoneNumError || passwordError || password2Error) {
+            return;}
+        
+
+        // Prepare the data object to send to the server
+        const data = {name,email,phoneNum,password};
+
+        // Send a POST request to the server with JSON data
+        fetch("http://localhost:3000/api/student",{
+            method:"POST",
+            headers :{ "Content-Type": "application/json" },
+            // Convert the JavaScript object to JSON and send it in the request body
+            body: JSON.stringify(data)
+        })
+
+        // Parse the JSON response from the server into a JavaScript object
+        .then(res => res.json())
+
+        // the "data" here is res.json()
+        .then(data => {
+            responseMsg.style.color = "green";
+
+            // if no message from server, automatically write down message bolow
+            responseMsg.innerText = data.message ||"Form submitted successfully!";
+
+            // Reset the form after successful submission
+            form.reset();
+        })
+
+        .catch(err => {
+            // Handle errors during the fetch request
+            responseMsg.style.color ="red";
+            responseMsg.innerText = "Error submitting form.";
+            console.error(err);
+        });        
+    })
+
+</script>
+
+</body>
+
+</html>
